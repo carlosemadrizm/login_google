@@ -1,0 +1,2 @@
+<?php
+$uricallback = 'http://localhost/';
