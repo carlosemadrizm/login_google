@@ -1,8 +1,17 @@
 
 <?php
-    require_once 'vendor/autoload.php';
+    
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+   
+    
+    //require_once 'vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
+
     require_once 'config_db.php';
     require_once 'config_login.php';
+   
 
     session_start();
 
@@ -13,7 +22,7 @@
 
     //$client->setRedirectUri('http://localhost/login_google/callback.php');
 
-    $client->setRedirectUri($uricallback . 'login_google/callback.php'); //viene de config_login.php
+    $client->setRedirectUri($uricallback); //viene de config_login.php
 
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);

@@ -2,4 +2,7 @@
 /vendor/
 
 # Ignorar el archivo de base de datos local o temporal
-/db.php
+/config_db.php
+
+# Ignorar el archivo de URLs
+/config_login.php

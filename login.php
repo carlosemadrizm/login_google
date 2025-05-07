@@ -1,8 +1,14 @@
-
 <?php
-    require_once 'vendor/autoload.php';
-    require_once 'config_login.php';
+    
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+   
+    //require_once '/vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
 
+    require_once 'config_login.php';
+    
     session_start();
 
     $client = new Google_Client();
@@ -10,13 +16,15 @@
     $client->setClientSecret('0KSoCti3JgsmtmNq6VbSyr5g');
 
                                                                          // $client->setRedirectUri('http://localhost/login_google/callback.php');
-    $client->setRedirectUri($uricallback . 'login_google/callback.php'); //viene de config_login.php
-
+    $client->setRedirectUri($uricallback); //viene de config_login.php
+  
     $client->addScope('email');
     $client->addScope('profile');
 
     $login_url = $client->createAuthUrl();
+ 
 ?>
+
 
 <!DOCTYPE html>
 <html>
